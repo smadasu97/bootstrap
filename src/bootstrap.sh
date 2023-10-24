@@ -121,6 +121,16 @@ mkdir "${PWD}/tmp_bootstrap"
 	${HOME}/.local/bin/goodls -u "${catimg_id}" &> "/dev/null"
 	chmod a+x "${PWD}/catimg"
 	cp "${PWD}/catimg" "${HOME}/.local/bin"
+
+	printf "Installing pokecat"
+	git clone -q "https://github.com/gvlassis/pokecat.git"
+	cp -R "${PWD}/pokecat" "${HOME}/Projects"
+	ln -sf "${HOME}/Projects/pokecat" "${HOME}/.local/share"
+
+	printf "Installing bashrc_utils\n"
+	git clone -q "https://github.com/gvlassis/bashrc_utils.git"
+	cp -R "${PWD}/bashrc_utils" "${HOME}/Projects"
+	ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
 )
 rm -rf "${PWD}/tmp_bootstrap"
 
