@@ -49,6 +49,7 @@ printf "Creating directories\n"
 mkdir "${HOME}/Projects" &> "/dev/null"
 mkdir "${HOME}/Documents" &> "/dev/null"
 mkdir "${HOME}/Temporary" &> "/dev/null"
+mkdir "${HOME}/Mount" &> "/dev/null"
 mkdir "${HOME}/.local" &> "/dev/null"
 mkdir "${HOME}/.local/bin" &> "/dev/null"
 mkdir "${HOME}/.local/share" &> "/dev/null"
@@ -122,7 +123,7 @@ mkdir "${PWD}/tmp_bootstrap"
 	chmod a+x "${PWD}/catimg"
 	cp "${PWD}/catimg" "${HOME}/.local/bin"
 
-	printf "Installing pokecat"
+	printf "Installing pokecat\n"
 	git clone -q "https://github.com/gvlassis/pokecat.git"
 	cp -R "${PWD}/pokecat" "${HOME}/Projects"
 	ln -sf "${HOME}/Projects/pokecat" "${HOME}/.local/share"
@@ -133,5 +134,17 @@ mkdir "${PWD}/tmp_bootstrap"
 	ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
 )
 rm -rf "${PWD}/tmp_bootstrap"
+
+printf "Connecting to Google Drive\n"
+client_id="934913687557-bmv21rhqinttpjh3a63ipnt4qsol38f2.apps.googleusercontent.com"
+while ! ${HOME}/.local/bin/rclone about mydrive: &> "/dev/null"; do
+	printf "mydrive: is not setup correctly\n"
+	read -s -p "client_secret:" client_secret
+	read -s -p "config_token:" config_token
+	${HOME}/.local/bin/rclone config create mydrive drive client_id="${client_id}" client_secret="${client_secret}" scope=drive config_is_local=false config_token="${config_token}" config_change_team_drive=false &> "/dev/null"
+done
+
+printf "Syncing settings\n"
+${HOME}/.local/bin/rclone bisync mydrive:Configs/.bashrc "${HOME}/.bashrc"
 
 printf "🥾Bootstrapping finished\n"
