@@ -132,6 +132,10 @@ mkdir "${PWD}/tmp_bootstrap"
 	git clone -q "https://github.com/gvlassis/bashrc_utils.git"
 	cp -R "${PWD}/bashrc_utils" "${HOME}/Projects"
 	ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
+
+	printf "Installing kitty.bash\n"
+	curl -LOJsS "https://raw.githubusercontent.com/kovidgoyal/kitty/master/shell-integration/bash/kitty.bash"
+	cp "${PWD}/kitty.bash" "${HOME}/.local/share"
 )
 rm -rf "${PWD}/tmp_bootstrap"
 
