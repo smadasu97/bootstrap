@@ -145,9 +145,11 @@ while ! ${HOME}/.local/bin/rclone about mydrive: &> "/dev/null"; do
 done
 
 printf "\nPulling settings\n"
-${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}" --include "{.bash_profile,.bashrc,.blerc,.condarc,.gitconfig,.hushlogin}"
-${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/bottom" --include "bottom.toml"
-${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/atuin" --include "config.toml"
-${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/rclone" --include "rclone.conf"
+${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}" --include "{.bash_profile,.bashrc,.blerc,.condarc,.gitconfig,.hushlogin}" &> "/dev/null"
+mkdir "${HOME}/.config/bottom" &> "/dev/null"
+${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/bottom" --include "bottom.toml" &> "/dev/null"
+mkdir "${HOME}/.config/atuin" &> "/dev/null"
+${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/atuin" --include "config.toml" &> "/dev/null"
+${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/rclone" --include "rclone.conf" &> "/dev/null"
 
 printf "🥾Bootstrapping finished\n"
