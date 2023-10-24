@@ -135,7 +135,8 @@ mkdir "${PWD}/tmp_bootstrap"
 
 	printf "Installing kitty.bash\n"
 	curl -LOJsS "https://raw.githubusercontent.com/kovidgoyal/kitty/master/shell-integration/bash/kitty.bash"
-	cp "${PWD}/kitty.bash" "${HOME}/.local/share"
+	mkdir "${HOME}/.local/share/kitty" &> "/dev/null"
+	cp "${PWD}/kitty.bash" "${HOME}/.local/share/kitty"
 )
 rm -rf "${PWD}/tmp_bootstrap"
 
