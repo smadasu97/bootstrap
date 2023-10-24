@@ -140,11 +140,11 @@ client_id="934913687557-bmv21rhqinttpjh3a63ipnt4qsol38f2.apps.googleusercontent.
 while ! ${HOME}/.local/bin/rclone about mydrive: &> "/dev/null"; do
 	printf "mydrive: is not setup correctly\n"
 	read -s -p "client_secret:" client_secret
-	read -s -p "config_token:" config_token
+	read -s -p $'\nconfig_token:' config_token
 	${HOME}/.local/bin/rclone config create mydrive drive client_id="${client_id}" client_secret="${client_secret}" scope=drive config_is_local=false config_token="${config_token}" config_change_team_drive=false &> "/dev/null"
 done
 
-printf "Syncing settings\n"
+printf "\nSyncing settings\n"
 ${HOME}/.local/bin/rclone bisync mydrive:Configs/.bashrc "${HOME}/.bashrc"
 
 printf "🥾Bootstrapping finished\n"
