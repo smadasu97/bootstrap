@@ -144,7 +144,10 @@ while ! ${HOME}/.local/bin/rclone about mydrive: &> "/dev/null"; do
 	${HOME}/.local/bin/rclone config create mydrive drive client_id="${client_id}" client_secret="${client_secret}" scope=drive config_is_local=false config_token="${config_token}" config_change_team_drive=false &> "/dev/null"
 done
 
-printf "\nSyncing settings\n"
-${HOME}/.local/bin/rclone bisync mydrive:Configs/.bashrc "${HOME}/.bashrc"
+printf "\nPulling settings\n"
+${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}" --include "{.bash_profile,.bashrc,.blerc,.condarc,.gitconfig,.hushlogin}"
+${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/bottom" --include "bottom.toml"
+${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/atuin" --include "config.toml"
+${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/rclone" --include "rclone.conf"
 
 printf "🥾Bootstrapping finished\n"
