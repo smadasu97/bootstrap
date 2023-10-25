@@ -133,6 +133,12 @@ mkdir "${PWD}/tmp_bootstrap"
 	cp -R "${PWD}/bashrc_utils" "${HOME}/Projects"
 	ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
 
+	printf "Installing xterm-kitty\n"
+	curl -LOJsS "https://github.com/kovidgoyal/kitty/raw/master/terminfo/x/xterm-kitty"
+	mkdir "${HOME}/.terminfo" &> "/dev/null"
+	mkdir "${HOME}/.terminfo/x" &> "/dev/null"
+	cp "${PWD}/xterm-kitty" "${HOME}/.terminfo/x"
+
 	printf "Installing kitty.bash\n"
 	curl -LOJsS "https://raw.githubusercontent.com/kovidgoyal/kitty/master/shell-integration/bash/kitty.bash"
 	mkdir "${HOME}/.local/share/kitty" &> "/dev/null"
