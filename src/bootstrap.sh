@@ -165,6 +165,14 @@ mkdir "${HOME}/.local/share/atuin" &> "/dev/null"
 ${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.local/share/atuin" --include "key" &> "/dev/null"
 ${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/rclone" --include "rclone.conf" &> "/dev/null"
 mkdir "${HOME}/.ssh" &> "/dev/null"
-${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.ssh/" --include "{id_rsa.pub,id_rsa,id_dsa.pub,id_dsa,id_ecdsa.pub,id_ecdsa,id_ed25519.pub,id_ed25519,config}" &> "/dev/null"
+${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.ssh" --include "{id_rsa.pub,id_rsa,id_dsa.pub,id_dsa,id_ecdsa.pub,id_ecdsa,id_ed25519.pub,id_ed25519,config}" &> "/dev/null"
+
+printf "Connecting to Atuin\n"
+username="gvlassis"
+while ! ${HOME}/.local/bin/atuin status &> "/dev/null"; do
+	printf "Not logged in Atuin\n"
+	read -s -p "password:" password
+	${HOME}/.local/bin/atuin login -u "${username}" -k "" -p "${password}"
+done
 
 printf "🥾Bootstrapping finished\n"
