@@ -151,11 +151,13 @@ client_id="934913687557-bmv21rhqinttpjh3a63ipnt4qsol38f2.apps.googleusercontent.
 while ! ${HOME}/.local/bin/rclone about mydrive: &> "/dev/null"; do
 	printf "mydrive: is not setup correctly\n"
 	read -s -p "client_secret:" client_secret
-	read -s -p $'\nconfig_token:' config_token
+	printf "\n"
+	read -s -p "config_token:" config_token
+	printf "\n"
 	${HOME}/.local/bin/rclone config create mydrive drive client_id="${client_id}" client_secret="${client_secret}" scope=drive config_is_local=false config_token="${config_token}" config_change_team_drive=false &> "/dev/null"
 done
 
-printf "\nPulling settings\n"
+printf "Pulling settings\n"
 ${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}" --include "{.bash_profile,.bashrc,.blerc,.condarc,.gitconfig,.hushlogin}" &> "/dev/null"
 mkdir "${HOME}/.config/bottom" &> "/dev/null"
 ${HOME}/.local/bin/rclone bisync --resync mydrive:Configs "${HOME}/.config/bottom" --include "bottom.toml" &> "/dev/null"
@@ -174,7 +176,8 @@ username="gvlassis"
 while ! ${HOME}/.local/bin/atuin status &> "/dev/null"; do
 	printf "Not logged in Atuin\n"
 	read -s -p "password:" password
+	printf "\n"
 	${HOME}/.local/bin/atuin login -u "${username}" -k "" -p "${password}" &> "/dev/null"
 done
 
-printf "\nBootstrapping finished🥾\n"
+printf "Bootstrapping finished🥾\n"
