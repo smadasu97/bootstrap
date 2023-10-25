@@ -180,4 +180,15 @@ while ! ${HOME}/.local/bin/atuin status &> "/dev/null"; do
 	${HOME}/.local/bin/atuin login -u "${username}" -k "" -p "${password}" &> "/dev/null"
 done
 
+printf "Writing crontab\n"
+printf "
+* * * * * ${HOME}/.local/bin/rclone bisync --force mydrive:Configs ${HOME} --include {.bash_profile,.bashrc,.blerc,.condarc,.gitconfig,.hushlogin}
+* * * * * ${HOME}/.local/bin/rclone bisync --force mydrive:Configs ${HOME}/.config/bottom --include bottom.toml
+* * * * * ${HOME}/.local/bin/rclone bisync --force mydrive:Configs ${HOME}/.config/atuin --include config.toml
+* * * * * ${HOME}/.local/bin/rclone bisync --force mydrive:Configs ${HOME}/.local/share/atuin --include key
+* * * * * ${HOME}/.local/bin/rclone bisync --force mydrive:Configs ${HOME}/.config/rclone --include rclone.conf
+* * * * * ${HOME}/.local/bin/rclone bisync --force mydrive:Configs ${HOME}/.ssh --include {id_rsa.pub,id_rsa,id_dsa.pub,id_dsa,id_ecdsa.pub,id_ecdsa,id_ed25519.pub,id_ed25519,config}
+* * * * * /usr/bin/find ${HOME}/Temporary -amin +180 -delete
+" | crontab
+
 printf "Bootstrapping finished🥾\n"
