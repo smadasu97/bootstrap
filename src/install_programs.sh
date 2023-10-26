@@ -35,8 +35,6 @@ function install_programs(){
 
 		printf "Installing catimg\n"
 		${HOME}/.local/bin/goodls -u "${catimg_id}" &> "/dev/null"
-		printf "$PWD\n"
-		ls -al
 		chmod a+x "${PWD}/catimg"
 		cp "${PWD}/catimg" "${HOME}/.local/bin"
 
