@@ -4,6 +4,12 @@ function install_programs(){
 	(
 		cd "${PWD}/tmp_bootstrap"
 
+		# goodls might be used to download other programs, so install it first
+		printf "Installing goodls\n"
+		curl -LOJsS "https://github.com/tanaikech/goodls/releases/latest/download/goodls_${goodls_id}"
+		chmod a+x ${PWD}/goodls*
+		cp ${PWD}/goodls* "${HOME}/.local/bin/goodls"
+
 		printf "Installing atuin\n"
 		# Code borrowed from https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh
 		local atuin_latest_release=$(curl -L -s -H 'Accept: application/json' https://github.com/atuinsh/atuin/releases/latest)
@@ -45,11 +51,6 @@ function install_programs(){
 		printf "Installing git-prompt.sh\n"
 		curl -LOJsS "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
 		cp "${PWD}/git-prompt.sh" "${HOME}/.local/share"
-
-		printf "Installing goodls\n"
-		curl -LOJsS "https://github.com/tanaikech/goodls/releases/latest/download/goodls_${goodls_id}"
-		chmod a+x ${PWD}/goodls*
-		cp ${PWD}/goodls* "${HOME}/.local/bin/goodls"
 
 		printf "Installing kitty.bash\n"
 		curl -LOJsS "https://raw.githubusercontent.com/kovidgoyal/kitty/master/shell-integration/bash/kitty.bash"
