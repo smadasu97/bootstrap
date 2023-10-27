@@ -93,6 +93,7 @@ function install_programs(){
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
 
+	printf "Installing resync.sh\n"
 	local script_path="$(readlink -f "${0}")"
 	local src_path="$(dirname "${script_path}")"
 

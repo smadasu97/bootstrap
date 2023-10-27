@@ -1,4 +1,4 @@
-printf "Starting bootstraping🥾\n"
+printf "\x1b[1mStarting bootstraping🥾\x1b[0m\n"
 
 script_path="$(readlink -f "${0}")"
 src_path="$(dirname "${script_path}")"
@@ -33,4 +33,4 @@ printf "Writing crontab\n"
 . "${src_path}/write_crontab.sh"
 write_crontab "drive"
 
-printf "Bootstrapping finished🥾\n"
+printf "\x1b[1mBootstrapping finished🥾\x1b[0m\n"
