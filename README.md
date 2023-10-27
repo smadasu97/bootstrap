@@ -1,5 +1,5 @@
 # bootstrap
-![demo](./res/demo.mov)
+![demo](./res/demo.mp4)
 
 ## Description
 
