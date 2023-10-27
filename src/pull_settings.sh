@@ -11,6 +11,9 @@ function pull_settings(){
 	${HOME}/.local/bin/rclone bisync --resync ${name}:Configs "${HOME}/.ssh" --include "{id_rsa.pub,id_rsa,id_dsa.pub,id_dsa,id_ecdsa.pub,id_ecdsa,id_ed25519.pub,id_ed25519,config}" &> "/dev/null"
 	# SSH keys require specific permissions
 	chmod go-r "${HOME}/.ssh/id_rsa" "${HOME}/.ssh/id_dsa" "${HOME}/.ssh/id_ecdsa" "${HOME}/.ssh/id_ed25519"
+	# Change git remote URLs
+	git -C "${HOME}/Projects/bashrc_utils" remote set-url origin git@github.com:gvlassis/bashrc_utils.git
+	git -C "${HOME}/Projects/pokecat" remote set-url origin git@github.com:gvlassis/pokecat.git
 
 	mkdir "${HOME}/.config/atuin" &> "/dev/null"
 	${HOME}/.local/bin/rclone bisync --resync ${name}:Configs "${HOME}/.config/atuin" --include "config.toml" &> "/dev/null"
