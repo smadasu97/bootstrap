@@ -19,8 +19,7 @@ function install_programs(){
 		cp ${PWD}/atuin*/atuin "${HOME}/.local/bin"
 
 		printf "Installing bashrc_utils\n"
-		git clone -q "https://github.com/gvlassis/bashrc_utils.git"
-		cp -R "${PWD}/bashrc_utils" "${HOME}/Projects"
+		git -C "${HOME}/Projects" clone "https://github.com/gvlassis/bashrc_utils.git" &> "/dev/null"
 		ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
 
 		printf "Installing blesh\n"
@@ -82,9 +81,8 @@ function install_programs(){
 		cp "${PWD}/nvtop" "${HOME}/.local/bin"
 
 		printf "Installing pokecat\n"
-		git clone -q "https://github.com/gvlassis/pokecat.git"
-		cp -R "${PWD}/pokecat" "${HOME}/Projects"
-		ln -sf "${HOME}/Projects/pokecat" "${HOME}/.local/share"
+		git -C "${HOME}/Projects" clone "https://github.com/gvlassis/pokecat.git" &> "/dev/null"
+		ln -sf "${HOME}/Projects/pokecat/src/pokecat.sh" "${HOME}/.local/bin"
 
 		printf "Installing rclone\n"
 		curl -LOJsS "https://downloads.rclone.org/rclone-current-${rclone_id}.zip"
