@@ -92,4 +92,9 @@ function install_programs(){
 		cp ${PWD}/rclone*/rclone "${HOME}/.local/bin"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
+
+	local script_path="$(readlink -f "${0}")"
+	local src_path="$(dirname "${script_path}")"
+
+	cp "${src_path}/resync.sh" "${HOME}/.local/bin"
 }
