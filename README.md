@@ -12,7 +12,7 @@ Program for fast bootstrapping of my personal development environment on new com
 1. Connects to my [Atuin](https://github.com/atuinsh/atuin) account
 1. Writes my crontab
 
-![demo](https://github.com/gvlassis/bootstrap/assets/74119653/ca2572fd-e567-471d-9f31-759b0b32bf6a)
+https://github.com/gvlassis/bootstrap/assets/74119653/ca2572fd-e567-471d-9f31-759b0b32bf6a
 
 ## TODO
 \-
