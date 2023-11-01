@@ -23,9 +23,9 @@ function install_programs(){
 		ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
 
 		printf "Installing blesh\n"
-		curl -LOJsS "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz"
-		tar -xJ -f "ble-nightly.tar.xz"
-		cp -R ble-nightly "${HOME}/.local/share"
+		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1f2LZHyOgMpjE13kIhstX0uYQAAWVez4K/view?usp=drive_link" &> "/dev/null"
+		unzip -q blesh.zip
+		cp -R "${PWD}/blesh" "${HOME}/.local/share"
 
 		printf "Installing bottom\n"
 		curl -LOJsS "https://github.com/ClementTsang/bottom/releases/latest/download/bottom_${bottom_id}.tar.gz"
