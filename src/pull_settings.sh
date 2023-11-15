@@ -2,7 +2,7 @@
 function pull_settings(){
 	local name="${1}"
 
-	${HOME}/.local/bin/rclone bisync --resync ${name}:Configs "${HOME}" --include "{.bash_profile,.bashrc,.blerc,.condarc,.gitconfig,.hushlogin}" &> "/dev/null"
+	${HOME}/.local/bin/rclone bisync --resync ${name}:Configs "${HOME}" --include "{.bash_profile,.bashrc,.blerc,.condarc,.gitconfig}" &> "/dev/null"
 
 	mkdir "${HOME}/.config/bottom" &> "/dev/null"
 	${HOME}/.local/bin/rclone bisync --resync ${name}:Configs "${HOME}/.config/bottom" --include "bottom.toml" &> "/dev/null"

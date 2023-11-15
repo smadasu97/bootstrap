@@ -12,6 +12,7 @@ check_dependencies bzip2 unzip
 printf "Creating directories\n"
 . "${src_path}/create_dirs.sh"
 create_dirs
+touch "${HOME}/.hushlogin"
 
 printf "Installing programs\n"
 . "${src_path}/install_programs.sh"
