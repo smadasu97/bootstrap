@@ -20,13 +20,14 @@ function install_programs(){
 
 		printf "Installing bashrc_utils\n"
 		git clone "https://github.com/gvlassis/bashrc_utils.git" &> "/dev/null"
-		cp -r "${PWD}/bashrc_utils" "${HOME}/Projects"
+		rm -rf "${HOME}/Projects/bashrc_utils"
+		cp -R "${PWD}/bashrc_utils" "${HOME}/Projects"
 		ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
 
 		printf "Installing blesh\n"
 		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1f2LZHyOgMpjE13kIhstX0uYQAAWVez4K/view?usp=drive_link" &> "/dev/null"
 		unzip -q blesh.zip
-		cp -r "${PWD}/blesh" "${HOME}/.local/share"
+		cp -R "${PWD}/blesh" "${HOME}/.local/share"
 
 		printf "Installing bottom\n"
 		curl -LOJsS "https://github.com/ClementTsang/bottom/releases/latest/download/bottom_${bottom_id}.tar.gz"
@@ -83,7 +84,8 @@ function install_programs(){
 
 		printf "Installing pokecat\n"
 		git clone "https://github.com/gvlassis/pokecat.git" &> "/dev/null"
-		cp -r "${PWD}/pokecat" "${HOME}/Projects"
+		rm -rf "${HOME}/Projects/pokecat"
+		cp -R "${PWD}/pokecat" "${HOME}/Projects"
 		ln -sf "${HOME}/Projects/pokecat/src/pokecat.sh" "${HOME}/.local/bin"
 
 		printf "Installing rclone\n"
