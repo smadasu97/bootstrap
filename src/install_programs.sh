@@ -11,12 +11,9 @@ function install_programs(){
 		cp ${PWD}/goodls* "${HOME}/.local/bin/goodls"
 
 		printf "Installing atuin\n"
-		# Code borrowed from https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh
-		local atuin_latest_release=$(curl -L -s -H 'Accept: application/json' https://github.com/atuinsh/atuin/releases/latest)
-		local atuin_latest_version=$(echo "$atuin_latest_release" | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
-		curl -LOJsS "https://github.com/atuinsh/atuin/releases/download/${atuin_latest_version}/atuin-${atuin_latest_version}-${atuin_id}.tar.gz"
-		tar -xz -f ${PWD}/atuin*
-		cp ${PWD}/atuin*/atuin "${HOME}/.local/bin"
+		${HOME}/.local/bin/goodls -u "${atuin_id}" &> "/dev/null"
+		chmod a+x "${PWD}/atuin"
+		cp "${PWD}/atuin" "${HOME}/.local/bin"
 
 		printf "Installing bashrc_utils\n"
 		git clone "https://github.com/gvlassis/bashrc_utils.git" &> "/dev/null"
@@ -40,7 +37,7 @@ function install_programs(){
 		cp "${PWD}/catimg" "${HOME}/.local/bin"
 
 		printf "Installing fastfetch\n"
-		# Similarly to atuin
+		# Code borrowed from https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh
 		local fastfetch_latest_release=$(curl -L -s -H 'Accept: application/json' https://github.com/fastfetch-cli/fastfetch/releases/latest)
 		local fastfetch_latest_version=$(echo "$fastfetch_latest_release" | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
 		curl -LOJsS "https://github.com/fastfetch-cli/fastfetch/releases/download/${fastfetch_latest_version}/fastfetch-${fastfetch_latest_version}-${fastfetch_id}.tar.gz"
@@ -70,11 +67,6 @@ function install_programs(){
 		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1xCKAoA0p8Nu8EnECJeZbjtpzMyNEUUwh/view?usp=share_link" &> "/dev/null"
 		mkdir "${HOME}/.local/share/nnn" &> "/dev/null"
 		cp "${PWD}/quitcd.sh" "${HOME}/.local/share/nnn"
-
-		printf "Installing nvtop\n"
-		${HOME}/.local/bin/goodls -u "${nvtop_id}" &> "/dev/null"
-		chmod a+x "${PWD}/nvtop"
-		cp "${PWD}/nvtop" "${HOME}/.local/bin"
 
 		printf "Installing pokecat\n"
 		git clone "https://github.com/gvlassis/pokecat.git" &> "/dev/null"
