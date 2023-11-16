@@ -17,6 +17,10 @@ function install_programs(){
 
 		printf "Installing bashrc_utils\n"
 		git clone "https://github.com/gvlassis/bashrc_utils.git" &> "/dev/null"
+		(
+			cd bashrc_utils
+			git remote set-url origin git@github.com:gvlassis/bashrc_utils.git
+		)
 		rm -rf "${HOME}/Projects/bashrc_utils"
 		cp -R "${PWD}/bashrc_utils" "${HOME}/Projects"
 		ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
@@ -70,6 +74,10 @@ function install_programs(){
 
 		printf "Installing pokecat\n"
 		git clone "https://github.com/gvlassis/pokecat.git" &> "/dev/null"
+		(
+			cd pokecat
+			git remote set-url origin git@github.com:gvlassis/pokecat.git
+		)
 		rm -rf "${HOME}/Projects/pokecat"
 		cp -R "${PWD}/pokecat" "${HOME}/Projects"
 		ln -sf "${HOME}/Projects/pokecat/src/pokecat.sh" "${HOME}/.local/bin"
