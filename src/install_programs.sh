@@ -86,6 +86,9 @@ function install_programs(){
 		curl -LOJsS "https://downloads.rclone.org/rclone-current-${rclone_id}.zip"
 		unzip -q ${PWD}/rclone*
 		cp ${PWD}/rclone*/rclone "${HOME}/.local/bin"
+
+		printf "Installing Python requests\n"
+		pip3 install requests &> "/dev/null"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
 
