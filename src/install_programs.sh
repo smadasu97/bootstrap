@@ -51,16 +51,10 @@ function install_programs(){
 		curl -LOJsS "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
 		cp "${PWD}/git-prompt.sh" "${HOME}/.local/share"
 
-		printf "Installing kitty.bash\n"
-		curl -LOJsS "https://raw.githubusercontent.com/kovidgoyal/kitty/master/shell-integration/bash/kitty.bash"
-		mkdir "${HOME}/.local/share/kitty" &> "/dev/null"
-		cp "${PWD}/kitty.bash" "${HOME}/.local/share/kitty"
-
-		printf "Installing xterm-kitty\n"
-		curl -LOJsS "https://github.com/kovidgoyal/kitty/raw/master/terminfo/x/xterm-kitty"
-		mkdir "${HOME}/.terminfo" &> "/dev/null"
-		mkdir "${HOME}/.terminfo/x" &> "/dev/null"
-		cp "${PWD}/xterm-kitty" "${HOME}/.terminfo/x"
+		printf "Installing shellIntegration-bash.sh\n"
+		curl -LOJsS "https://raw.githubusercontent.com/microsoft/vscode/main/src/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh"
+		mkdir "${HOME}/.local/share/vscode" &> "/dev/null"
+		cp "${PWD}/shellIntegration-bash.sh" "${HOME}/.local/share/vscode"
 
 		printf "Installing micromamba\n"
 		curl -LOJsS "https://micro.mamba.pm/api/micromamba/${micromamba_id}/latest"
