@@ -18,4 +18,5 @@ function pull_settings(){
 	mkdir "${HOME}/.config/atuin" &> "/dev/null"
 	${HOME}/.local/bin/rclone bisync --resync ${name}:Configs "${HOME}/.config/atuin" --include "config.toml" &> "/dev/null"
 	mkdir "${HOME}/.local/share/atuin" &> "/dev/null"
+	${HOME}/.local/bin/rclone bisync --resync ${name}:Configs "${HOME}/.local/share/atuin" --include "key" &> "/dev/null"
 }
