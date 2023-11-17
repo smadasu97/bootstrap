@@ -32,8 +32,8 @@ function install_programs(){
 
 		printf "Installing bottom\n"
 		${HOME}/.local/bin/goodls -u "${bottom_id}" &> "/dev/null"
-		chmod a+x "${PWD}/bottom"
-		cp "${PWD}/bottom" "${HOME}/.local/bin"
+		chmod a+x "${PWD}/btm"
+		cp "${PWD}/btm" "${HOME}/.local/bin"
 
 
 		printf "Installing catimg\n"
