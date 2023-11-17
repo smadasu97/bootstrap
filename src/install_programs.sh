@@ -31,9 +31,10 @@ function install_programs(){
 		cp -R "${PWD}/blesh" "${HOME}/.local/share"
 
 		printf "Installing bottom\n"
-		curl -LOJsS "https://github.com/ClementTsang/bottom/releases/latest/download/bottom_${bottom_id}.tar.gz"
-		tar -xz -f ${PWD}/bottom*
-		cp "${PWD}/btm" "${HOME}/.local/bin"
+		${HOME}/.local/bin/goodls -u "${bottom_id}" &> "/dev/null"
+		chmod a+x "${PWD}/bottom"
+		cp "${PWD}/bottom" "${HOME}/.local/bin"
+
 
 		printf "Installing catimg\n"
 		${HOME}/.local/bin/goodls -u "${catimg_id}" &> "/dev/null"

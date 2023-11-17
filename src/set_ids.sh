@@ -7,7 +7,7 @@ function set_ids(){
 		if [ "${arch}" = "arm64" ]; then
 			printf "\x1b[32mmacOS-arm64 (supported) detected\x1b[0m\n"
 			atuin_id="https://drive.google.com/file/d/1SdU9OUoFuP2bVzhhBCS75oGFwum8J8Do/view?usp=share_link"
-			bottom_id="aarch64-apple-darwin"
+			bottom_id="https://drive.google.com/file/d/1a7bB25JkOGkhICUKmqPGpKlcBOZAEskM/view?usp=share_link"
 			catimg_id="https://drive.google.com/file/d/1j8H5iq9rauS_04XMsTX7pqElf3JWQ9wC/view?usp=share_link"
 			fastfetch_id="Darwin"
 			goodls_id="darwin_amd64"
@@ -22,7 +22,7 @@ function set_ids(){
 		if [ "${arch}" = "x86_64" ]; then
 			printf "\x1b[32mLinux-amd64 (supported) detected\x1b[0m\n"
 			atuin_id="https://drive.google.com/file/d/1YAwu9cCFnqTvwhUQySPg18FSMNNXI9d_/view?usp=share_link"
-			bottom_id="x86_64-unknown-linux-gnu"
+			bottom_id="https://drive.google.com/file/d/1CVebWFC-PTV3hVihNdHwoIZe-m5ls2sp/view?usp=share_link"
 			catimg_id="https://drive.google.com/file/d/1qakNW2xoloMnol_oHHgPwNb8RZve6ihx/view?usp=share_link"
 			fastfetch_id="Linux"
 			goodls_id="linux_amd64"
