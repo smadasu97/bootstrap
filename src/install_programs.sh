@@ -88,8 +88,11 @@ function install_programs(){
 		unzip -q ${PWD}/rclone*
 		cp ${PWD}/rclone*/rclone "${HOME}/.local/bin"
 
+		printf "Installing Python\n"
+		${HOME}/.local/bin/micromamba -y install -n base python &> "/dev/null"
+
 		printf "Installing Python requests\n"
-		pip3 install requests &> "/dev/null"
+		${HOME}/.local/bin/micromamba run -n base pip3 install requests &> "/dev/null"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
 
