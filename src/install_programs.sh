@@ -90,10 +90,4 @@ function install_programs(){
 		${HOME}/.local/bin/micromamba run -n base pip3 install requests &> "/dev/null"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
-
-	printf "Installing resync.sh\n"
-	local script_path="$(readlink -f "${0}")"
-	local src_path="$(dirname "${script_path}")"
-
-	cp "${src_path}/resync.sh" "${HOME}/.local/bin"
 }
