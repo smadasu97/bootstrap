@@ -64,7 +64,7 @@ function install_programs(){
 		cp "${PWD}/nnn" "${HOME}/.local/bin"
 
 		printf "Installing quit.cd\n"
-		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1xCKAoA0p8Nu8EnECJeZbjtpzMyNEUUwh/view?usp=share_link" &> "/dev/null"
+		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1xCKAoA0p8Nu8EnECJeZbjtpzMyNEUUwh/view?usp=drive_link" &> "/dev/null"
 		mkdir "${HOME}/.local/share/nnn" &> "/dev/null"
 		cp "${PWD}/quitcd.sh" "${HOME}/.local/share/nnn"
 
