@@ -53,11 +53,6 @@ function install_programs(){
 		curl -LOJsS "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
 		cp "${PWD}/git-prompt.sh" "${HOME}/.local/share"
 
-		printf "Installing shellIntegration-bash.sh\n"
-		curl -LOJsS "https://raw.githubusercontent.com/microsoft/vscode/main/src/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh"
-		mkdir "${HOME}/.local/share/vscode" &> "/dev/null"
-		cp "${PWD}/shellIntegration-bash.sh" "${HOME}/.local/share/vscode"
-
 		printf "Installing micromamba\n"
 		curl -LOJsS "https://micro.mamba.pm/api/micromamba/${micromamba_id}/latest"
 		tar -xj -f ${PWD}/micromamba*
