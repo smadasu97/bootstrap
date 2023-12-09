@@ -26,7 +26,7 @@ function install_programs(){
 		ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
 
 		printf "Installing blesh\n"
-		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1f2LZHyOgMpjE13kIhstX0uYQAAWVez4K/view?usp=drive_link" &> "/dev/null"
+		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1f2LZHyOgMpjE13kIhstX0uYQAAWVez4K/view?usp=sharing" &> "/dev/null"
 		unzip -q blesh.zip
 		cp -R "${PWD}/blesh" "${HOME}/.local/share"
 
@@ -64,7 +64,7 @@ function install_programs(){
 		cp "${PWD}/nnn" "${HOME}/.local/bin"
 
 		printf "Installing quit.cd\n"
-		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1xCKAoA0p8Nu8EnECJeZbjtpzMyNEUUwh/view?usp=drive_link" &> "/dev/null"
+		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1xCKAoA0p8Nu8EnECJeZbjtpzMyNEUUwh/view?usp=sharing" &> "/dev/null"
 		mkdir "${HOME}/.local/share/nnn" &> "/dev/null"
 		cp "${PWD}/quitcd.sh" "${HOME}/.local/share/nnn"
 
