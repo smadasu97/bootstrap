@@ -7,10 +7,13 @@ Program for fast bootstrapping of my personal development environment on new com
 1. Checks the architecture of the new computer (macOS-arm64 and Linux-amd64 are supported)
 1. Checks if the dependencies bzip2 and unzip are in PATH
 1. Creates useful directories (e.g. $HOME/Projects)
-1. Installs the *latest* versions of my essential programs. For those that do not offer prebuilt binaries, I use binaries compiled by me and hosted on my personal Google Drive
-1. Sets up **bidirectional syncing of my configuration files via Google Drive**. This is similar to how Android backups certain settings on Google Drive.
+1. Installs the *latest* versions of my essential programs. For those that do not offer prebuilt binaries, I use binaries compiled by me and hosted on my public Google Drive
+1. Pulls my configuration files from my public Google Drive
+1. Connects to my **private** Google Drive
+1. Pulls my keys from my **private** Google Drive
 1. Connects to my [Atuin](https://github.com/atuinsh/atuin) account
-1. Writes my crontab
+
+> In previous versions, the program did bidirectional syncing (similar to how Android backups certain settings on Google Drive). This was done with rclone's bisync. Unfortunately, bisync is experimental, and there was a plethora of problems. Hence, bidirectional syncing was removed 😢.
 
 https://github.com/gvlassis/bootstrap/assets/74119653/ca2572fd-e567-471d-9f31-759b0b32bf6a
 
@@ -39,12 +42,10 @@ install_programs.sh uses the *_id variables plus curl, git and [goodls](https://
 
 > Shameless plug: One of the installed programs is [pokecat](https://github.com/gvlassis/pokecat). Try it!
 
-connect_drive.sh connects (via [rclone](https://rclone.org/)) to my personal Google Drive. My client_secret and config_token are needed to log in.
+pull_configs.sh pulls my configuration files from my public Google Drive.
 
-pull_settings.sh pulls my configuration files from my Google Drive. The files include .bashrc, .gitconfig and my SSH keys (I am well aware of the danger). Think about how **crazy convenient** this is!
+connect_drive.sh connects (via [rclone](https://rclone.org/)) to my **private** Google Drive. My client_secret and config_token are needed to log in.
+
+pull_keys.sh pulls my keys from my **private** Google Drive.
 
 connect_atuin.sh, well, connects to [Atuin](https://github.com/atuinsh/atuin) 😂.
-
-write_crontab.sh writes my crontab.
-
-> CAUTION: cron tasks may run in parallel. This probably caused lock issues with rclone bisync in one of the previous versions of bootstrap. This is why I made the script resync.sh, that groups all the syncing. It also makes manual resyncing *way* more convenient.
