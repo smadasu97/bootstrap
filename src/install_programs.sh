@@ -91,7 +91,7 @@ function install_programs(){
 
 		printf "Installing zellij\n"
 		curl -LOJsS "https://github.com/zellij-org/zellij/releases/latest/download/zellij-$zellij_id.tar.gz"
-		tar -xj -f ${PWD}/zellij*
+		tar -xz -f ${PWD}/zellij*
 		cp ${PWD}/zellij "${HOME}/.local/bin/zellij"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
