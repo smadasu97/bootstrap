@@ -38,4 +38,12 @@ function pull_configs(){
 		# config.toml
 		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1OWHbmENvfx-RNvxYJUL51WLzt5UoSVWi/view?usp=sharing" &> "/dev/null"
 	)
+
+	mkdir "${HOME}/.config/zellij" &> "/dev/null"
+	(
+		cd "${HOME}/.config/zellij"
+
+		# config.kdl
+		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1-RRfDjOVctimSTZkCOstZdPQ-RqxT6m4/view?usp=sharing" &> "/dev/null"
+	)
 }

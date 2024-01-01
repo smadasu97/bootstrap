@@ -14,6 +14,7 @@ function set_ids(){
 			micromamba_id="osx-arm64"
 			nnn_id="https://drive.google.com/file/d/1jHGoOOdNk8KY_Y4UrIC97XxaIiarIFUw/view?usp=sharing"
 			rclone_id="osx-arm64"
+			zellij_id="aarch64-apple-darwin"
 		else
 			printf "\x1b[31mmacOS-${arch} (unsupported) detected\x1b[0m\n" >& 2
 			exit 2
@@ -29,6 +30,7 @@ function set_ids(){
 			micromamba_id="linux-64"
 			nnn_id="https://drive.google.com/file/d/12-B9YRYGGCJBkz--QVhcWBhzEH3b7gHZ/view?usp=sharing"
 			rclone_id="linux-amd64"
+			zellij_id="x86_64-unknown-linux-musl"
 		else
 			printf "\x1b[31mLinux-${arch} (unsupported) detected\x1b[0m\n" >& 2
 			exit 2

@@ -88,6 +88,10 @@ function install_programs(){
 
 		printf "Installing Python requests\n"
 		${HOME}/.local/bin/micromamba run -n base pip3 install requests &> "/dev/null"
+
+		printf "Installing zellij\n"
+		curl -LOJsS "https://github.com/zellij-org/zellij/releases/latest/download/zellij-$zellij_id.tar.gz"
+		cp ${PWD}/zellij "${HOME}/.local/bin/zellij"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
 }
