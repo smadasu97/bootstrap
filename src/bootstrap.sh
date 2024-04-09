@@ -34,4 +34,4 @@ printf "Connecting to Atuin\n"
 . "${src_path}/connect_atuin.sh"
 connect_atuin "gvlassis"
 
-printf "\x1b[1mBootstrapping finished🥾\x1b[0m\n"
+printf "\x1b[1mBootstrapping finished\x1b[0m\n"
