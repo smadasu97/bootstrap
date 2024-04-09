@@ -15,14 +15,6 @@ function pull_configs(){
 		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1bV9GT4um_0RpDxLIdjkZ-7Q8cMk6BJ6U/view?usp=sharing" &> "/dev/null"
 	)
 
-	mkdir "${HOME}/.config/bottom" &> "/dev/null"
-	(
-		cd "${HOME}/.config/bottom"
-
-		# bottom.toml
-		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1f_45cdGxDRUySSXquups5AHWZ4gd7l5H/view?usp=sharing" &> "/dev/null"
-	)
-
 	mkdir "${HOME}/.ssh" &> "/dev/null"
 	(
 		cd "${HOME}/.ssh"
@@ -46,4 +38,21 @@ function pull_configs(){
 		# config.kdl
 		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1-RRfDjOVctimSTZkCOstZdPQ-RqxT6m4/view?usp=sharing" &> "/dev/null"
 	)
+
+	mkdir "${HOME}/.config/btop" &> "/dev/null"
+	(
+		cd "${HOME}/.config/btop"
+
+		# btop.conf
+		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1jogoEZ2ioyw86j3b5RkH3qrS_1MOs-YC/view?usp=sharing" &> "/dev/null"
+	)
+
+	mkdir "${HOME}/.config/nvtop" &> "/dev/null"
+	(
+		cd "${HOME}/.config/nvtop"
+
+		# nvtop.ini
+		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1QEIaIk4LiUt4vMPcl9GGmVpBN99YqwCl/view?usp=sharing" &> "/dev/null"
+	)
+
 }

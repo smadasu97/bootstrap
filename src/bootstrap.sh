@@ -1,4 +1,4 @@
-printf "\x1b[1mStarting bootstrapping🥾\x1b[0m\n"
+printf "\x1b[1m🥾Starting bootstrapping\x1b[0m\n"
 
 script_path="$(readlink -f "${0}")"
 src_path="$(dirname "${script_path}")"

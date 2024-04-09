@@ -30,24 +30,10 @@ function install_programs(){
 		unzip -q blesh.zip
 		cp -R "${PWD}/blesh" "${HOME}/.local/share"
 
-		printf "Installing bottom\n"
-		${HOME}/.local/bin/goodls -u "${bottom_id}" &> "/dev/null"
-		chmod a+x "${PWD}/btm"
-		cp "${PWD}/btm" "${HOME}/.local/bin"
-
-
 		printf "Installing catimg\n"
 		${HOME}/.local/bin/goodls -u "${catimg_id}" &> "/dev/null"
 		chmod a+x "${PWD}/catimg"
 		cp "${PWD}/catimg" "${HOME}/.local/bin"
-
-		printf "Installing fastfetch\n"
-		# Code borrowed from https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh
-		local fastfetch_latest_release=$(curl -L -s -H 'Accept: application/json' https://github.com/fastfetch-cli/fastfetch/releases/latest)
-		local fastfetch_latest_version=$(echo "$fastfetch_latest_release" | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
-		curl -LOJsS "https://github.com/fastfetch-cli/fastfetch/releases/download/${fastfetch_latest_version}/fastfetch-${fastfetch_latest_version}-${fastfetch_id}.tar.gz"
-		tar -xz -f ${PWD}/fastfetch*
-		cp ${PWD}/fastfetch*/usr/bin/fastfetch "${HOME}/.local/bin"
 
 		printf "Installing git-prompt.sh\n"
 		curl -LOJsS "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
@@ -84,7 +70,10 @@ function install_programs(){
 		cp ${PWD}/rclone*/rclone "${HOME}/.local/bin"
 
 		printf "Installing Python\n"
-		${HOME}/.local/bin/micromamba -y install -n base python &> "/dev/null"
+		${HOME}/.local/bin/micromamba -y install -n base python=3.11 &> "/dev/null"
+
+		printf "Installing git\n"
+		${HOME}/.local/bin/micromamba -y install -n base git &> "/dev/null"
 
 		printf "Installing Python requests\n"
 		${HOME}/.local/bin/micromamba run -n base pip3 install requests &> "/dev/null"
@@ -93,6 +82,26 @@ function install_programs(){
 		curl -LOJsS "https://github.com/zellij-org/zellij/releases/latest/download/zellij-$zellij_id.tar.gz"
 		tar -xz -f ${PWD}/zellij*
 		cp ${PWD}/zellij "${HOME}/.local/bin/zellij"
+
+		printf "Installing btop\n"
+		${HOME}/.local/bin/goodls -u "${btop_id}" &> "/dev/null"
+		chmod a+x "${PWD}/btop"
+		cp "${PWD}/btop" "${HOME}/.local/bin"
+
+		printf "Installing nvtop\n"
+		${HOME}/.local/bin/goodls -u "${nvtop_id}" &> "/dev/null"
+		chmod a+x "${PWD}/nvtop"
+		cp "${PWD}/nvtop" "${HOME}/.local/bin"
+
+		printf "Installing soft\n"
+		git clone "https://github.com/gvlassis/soft.git" &> "/dev/null"
+		(
+			cd soft
+			git remote set-url origin git@github.com:gvlassis/soft.git
+		)
+		rm -rf "${HOME}/Projects/soft"
+		cp -R "${PWD}/soft" "${HOME}/Projects"
+		ln -sf "${HOME}/Projects/soft/src/soft.sh" "${HOME}/.local/bin"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
 }
