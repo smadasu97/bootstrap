@@ -25,10 +25,12 @@ function install_programs(){
 		cp -R "${PWD}/bashrc_utils" "${HOME}/Projects"
 		ln -sf "${HOME}/Projects/bashrc_utils" "${HOME}/.local/share"
 
-		printf -- "-Installing blesh\n"
-		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1f2LZHyOgMpjE13kIhstX0uYQAAWVez4K/view?usp=sharing" &> "/dev/null"
-		unzip -q blesh.zip
-		cp -R "${PWD}/blesh" "${HOME}/.local/share"
+		printf -- "-Installing ble.sh\n"
+		git clone --recursive --depth 1 --shallow-submodules "https://github.com/akinomyoga/ble.sh.git" &> "/dev/null"
+		(
+			cd ble.sh
+			make install install PREFIX="${HOME}/.local"
+		)
 
 		printf -- "-Installing catimg\n"
 		${HOME}/.local/bin/goodls -u "${catimg_id}" &> "/dev/null"
