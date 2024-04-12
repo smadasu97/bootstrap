@@ -29,7 +29,7 @@ function install_programs(){
 		git clone --recursive --depth 1 --shallow-submodules "https://github.com/akinomyoga/ble.sh.git" &> "/dev/null"
 		(
 			cd ble.sh
-			make install install PREFIX="${HOME}/.local" &> "/dev/null"
+			make install PREFIX="${HOME}/.local" &> "/dev/null"
 		)
 
 		printf -- "-Installing catimg\n"
