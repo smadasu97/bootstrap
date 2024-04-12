@@ -7,7 +7,7 @@ src_path="$(dirname "${script_path}")"
 set_ids
 
 . "${src_path}/utils.sh"
-check_dependencies bzip2 unzip make
+check_dependencies bzip2
 
 printf "Creating directories\n"
 . "${src_path}/create_dirs.sh"
