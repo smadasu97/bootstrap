@@ -16,8 +16,8 @@ function install_programs(){
 		eval "$(micromamba shell hook --shell "bash" 2> "/dev/null")"
 		micromamba activate
 
-		printf -- "-Installing Python, ncurses, git, unzip, make\n"
-		micromamba -y install -c conda-forge python=3.11 ncurses git unzip make &> "/dev/null"
+		printf -- "-Installing Python, ncurses, git, unzip, make, gawk\n"
+		micromamba -y install -c conda-forge python=3.11 ncurses git unzip make gawk &> "/dev/null"
 
 		printf -- "-Installing goodls\n"
 		curl -LOJsS "https://github.com/tanaikech/goodls/releases/latest/download/goodls_${goodls_id}"
