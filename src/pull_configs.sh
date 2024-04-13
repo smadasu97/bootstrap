@@ -55,4 +55,11 @@ function pull_configs(){
 		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1QEIaIk4LiUt4vMPcl9GGmVpBN99YqwCl/view?usp=sharing" &> "/dev/null"
 	)
 
+	mkdir "${HOME}/.proxychains" &> "/dev/null"
+	(
+		cd "${HOME}/.proxychains"
+
+		# proxychains.conf
+		${HOME}/.local/bin/goodls -u "https://drive.google.com/file/d/1fPHiN92HZlF6EIAiRbDuZCa23dW48WOH/view?usp=sharing" &> "/dev/null"
+	)
 }

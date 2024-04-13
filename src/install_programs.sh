@@ -107,6 +107,15 @@ function install_programs(){
 		rm -rf "${HOME}/Projects/soft"
 		cp -R "${PWD}/soft" "${HOME}/Projects"
 		ln -sf "${HOME}/Projects/soft/src/soft.sh" "${HOME}/.local/bin"
+
+		printf -- "-Installing proxychains\n"
+		goodls -u "${proxychains_id}" &> "/dev/null"
+		chmod a+x "${PWD}/proxychains4"
+		cp "${PWD}/proxychains4" "${HOME}/.local/bin"
+
+		printf -- "-Installing libproxychains\n"
+		goodls -u "${libproxychains_id}" &> "/dev/null"
+		cp "${PWD}/libproxychains" "${HOME}/.local/lib"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
 }

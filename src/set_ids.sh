@@ -15,6 +15,8 @@ function set_ids(){
 			zellij_id="aarch64-apple-darwin"
 			btop_id="https://drive.google.com/file/d/1pES7-KN6iWGVnBfl1oPBgfTZZvwyyEIm/view?usp=sharing"
 			nvtop_id="https://drive.google.com/file/d/1ODYaIXemhXuEK9pNTH2wwPkykoXYtdMA/view?usp=sharing"
+			proxychains_id="https://drive.google.com/file/d/1Twn9qRMrlTqbEnGu40ftENGbGo7SJR7k/view?usp=sharing"
+			libproxychains_id="https://drive.google.com/file/d/1gvjJLBbqyFIajk7JB1PwbuNHlvvUXgAw/view?usp=sharing"
 		else
 			printf "\x1b[31mmacOS-${arch} (unsupported) detected\x1b[0m\n" >& 2
 			exit 2
@@ -31,6 +33,8 @@ function set_ids(){
 			zellij_id="x86_64-unknown-linux-musl"
 			btop_id="https://drive.google.com/file/d/12dqTYLiSYG2RJZUbv5iFtqHo6f39KlY5/view?usp=sharing"
 			nvtop_id="https://drive.google.com/file/d/1dUfYdyob817wLsWpbspJzHtoFLTT_Sln/view?usp=sharing"
+			proxychains_id="https://drive.google.com/file/d/1SAW7Hmdwm8K7iSfZDw0_BKo58E5AEwws/view?usp=sharing"
+			libproxychains_id="https://drive.google.com/file/d/1_ErOzWzNSv6027dhoR6WB416ZfIPsahm/view?usp=sharing"
 		else
 			printf "\x1b[31mLinux-${arch} (unsupported) detected\x1b[0m\n" >& 2
 			exit 2
