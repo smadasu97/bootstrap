@@ -115,7 +115,7 @@ function install_programs(){
 
 		printf -- "-Installing libproxychains\n"
 		goodls -u "${libproxychains_id}" &> "/dev/null"
-		cp "${PWD}/libproxychains" "${HOME}/.local/lib"
+		cp ${PWD}/libproxychains4* "${HOME}/.local/lib"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
 }
