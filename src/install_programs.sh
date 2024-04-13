@@ -13,7 +13,7 @@ function install_programs(){
 		tar -xj -f ${PWD}/micromamba*
 		cp "${PWD}/bin/micromamba" "${HOME}/.local/bin"
 
-		eval "$(micromamba shell hook --shell "bash" 2> "/dev/null")"
+		eval "$(micromamba shell hook --shell "bash")"
 		micromamba activate
 
 		printf -- "-Installing Python, ncurses, git, unzip, make, gawk\n"
