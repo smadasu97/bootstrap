@@ -116,6 +116,16 @@ function install_programs(){
 		printf -- "-Installing libproxychains\n"
 		goodls -u "${libproxychains_id}" &> "/dev/null"
 		cp ${PWD}/libproxychains4* "${HOME}/.local/bin"
+
+		printf "Installing kitty.bash\n"
+        curl -LOJsS "https://raw.githubusercontent.com/kovidgoyal/kitty/master/shell-integration/bash/kitty.bash"
+        cp "${PWD}/kitty.bash" "${HOME}/.local/share"
+
+        printf "Installing xterm-kitty\n"
+        curl -LOJsS "https://github.com/kovidgoyal/kitty/raw/master/terminfo/x/xterm-kitty"
+        mkdir "${HOME}/.terminfo" &> "/dev/null"
+        mkdir "${HOME}/.terminfo/x" &> "/dev/null"
+        cp "${PWD}/xterm-kitty" "${HOME}/.terminfo/x"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
 }
