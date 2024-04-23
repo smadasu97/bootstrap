@@ -128,7 +128,7 @@ function install_programs(){
         cp "${PWD}/xterm-kitty" "${HOME}/.terminfo/x"
 
 		printf "Installing micro\n"
-		curl -LsS "https://getmic.ro" | bash
+		curl -LsS "https://getmic.ro" | bash &> "/dev/null"
 		cp "${PWD}/micro" "${HOME}/.local/bin"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
