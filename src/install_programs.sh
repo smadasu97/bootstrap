@@ -126,6 +126,10 @@ function install_programs(){
         mkdir "${HOME}/.terminfo" &> "/dev/null"
         mkdir "${HOME}/.terminfo/x" &> "/dev/null"
         cp "${PWD}/xterm-kitty" "${HOME}/.terminfo/x"
+
+		printf "Installing micro\n"
+		curl -LsS "https://getmic.ro" | bash
+		cp "${PWD}/micro" "${HOME}/.local/bin"
 	)
 	rm -rf "${PWD}/tmp_bootstrap"
 }
