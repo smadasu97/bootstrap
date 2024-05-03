@@ -117,30 +117,27 @@ function install_programs(){
         goodls -u "${libproxychains_id}" &> "/dev/null"
         cp ${PWD}/libproxychains4* "${HOME}/.local/bin"
 
-        printf "Installing kitty.bash\n"
+        printf -- "-Installing kitty.bash\n"
         curl -LOJsS "https://raw.githubusercontent.com/kovidgoyal/kitty/master/shell-integration/bash/kitty.bash"
         cp "${PWD}/kitty.bash" "${HOME}/.local/share"
 
-        printf "Installing xterm-kitty\n"
+        printf -- "-Installing xterm-kitty\n"
         curl -LOJsS "https://github.com/kovidgoyal/kitty/raw/master/terminfo/x/xterm-kitty"
         mkdir "${HOME}/.terminfo" &> "/dev/null"
         mkdir "${HOME}/.terminfo/x" &> "/dev/null"
         cp "${PWD}/xterm-kitty" "${HOME}/.terminfo/x"
 
-        printf "Installing neovim\n"
+        printf -- "-Installing neovim\n"
         curl -LOJsS "${neovim_id}"
         tar -xz -f ${PWD}/nvim*
         cp ${PWD}/nvim*/bin/nvim "${HOME}/.local/bin"
         cp -r ${PWD}/nvim*/lib/* "${HOME}/.local/lib"
         cp -r ${PWD}/nvim*/share/nvim "${HOME}/.local/share"
         
-        printf "Installing vim-plug\n"
+        printf -- "-Installing vim-plug\n"
         curl -LOJsS "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
         mkdir -p "${HOME}/.local/share/nvim/site/autoload"
         cp "plug.vim" "${HOME}/.local/share/nvim/site/autoload"
-
-        printf "Installing neovim plugins\n"
-        nvim --headless +PlugInstall +qa!
     )
     rm -rf "${PWD}/tmp_bootstrap"
 }
