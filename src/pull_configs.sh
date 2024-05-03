@@ -73,7 +73,7 @@ function pull_configs(){
         goodls -u "https://drive.google.com/file/d/1RzO8knUUz1ZevYWEnCceFQemUFE8Eg6E/view?usp=sharing" &> "/dev/null"
 
         # .vimrc
-        goodls -u "https://drive.google.com/file/d/1zuN5d0jc09QmWGeIuI2Y4dp9Cn7PA78j/view?usp=sharing" &> "dev/null"
+        goodls -u "https://drive.google.com/file/d/1zuN5d0jc09QmWGeIuI2Y4dp9Cn7PA78j/view?usp=sharing" &> "/dev/null"
     )
 
     mkdir "${HOME}/.config/nvim/colors" &> "/dev/null"
