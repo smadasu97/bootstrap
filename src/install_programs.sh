@@ -133,6 +133,14 @@ function install_programs(){
         cp ${PWD}/nvim*/bin/nvim "${HOME}/.local/bin"
         cp -r ${PWD}/nvim*/lib/* "${HOME}/.local/lib"
         cp -r ${PWD}/nvim*/share/nvim "${HOME}/.local/share"
+        
+        printf "Installing vim-plug\n"
+        curl -LOJsS "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+        mkdir -p "${HOME}/.local/share/nvim/site/autoload"
+        cp "plug.vim" "${HOME}/.local/share/nvim/site/autoload"
+
+        printf "Installing neovim plugins\n"
+        nvim --headless +PlugInstall +qa!
     )
     rm -rf "${PWD}/tmp_bootstrap"
 }
