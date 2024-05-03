@@ -138,6 +138,29 @@ function install_programs(){
         curl -LOJsS "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
         mkdir -p "${HOME}/.local/share/nvim/site/autoload"
         cp "plug.vim" "${HOME}/.local/share/nvim/site/autoload"
+
+        # Pull neovim config here so that plug-vim will work
+        mkdir "${HOME}/.config/nvim" &> "/dev/null"
+        (
+            cd "${HOME}/.config/nvim"
+
+            # init.lua
+            goodls -u "https://drive.google.com/file/d/1RzO8knUUz1ZevYWEnCceFQemUFE8Eg6E/view?usp=sharing" &> "/dev/null"
+
+            # .vimrc
+            goodls -u "https://drive.google.com/file/d/1zuN5d0jc09QmWGeIuI2Y4dp9Cn7PA78j/view?usp=sharing" &> "/dev/null"
+        )
+
+        mkdir "${HOME}/.config/nvim/colors" &> "/dev/null"
+        (
+            cd "${HOME}/.config/nvim/colors"
+
+            # personal.vim
+            goodls -u "https://drive.google.com/file/d/1Z_0GQntt2-biH95yiPctwm63T--gVkK8/view?usp=sharing" &> "/dev/null"
+        )
+
+        printf -- "-Installing neovim plugins\n"
+        nvim --headless +PlugUpdate +quitall! 
     )
     rm -rf "${PWD}/tmp_bootstrap"
 }

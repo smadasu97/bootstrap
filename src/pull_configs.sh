@@ -64,23 +64,4 @@ function pull_configs(){
         # proxychains.conf
         goodls -u "https://drive.google.com/file/d/1fPHiN92HZlF6EIAiRbDuZCa23dW48WOH/view?usp=sharing" &> "/dev/null"
     )
-    
-    mkdir "${HOME}/.config/nvim" &> "/dev/null"
-    (
-        cd "${HOME}/.config/nvim"
-
-        # init.lua
-        goodls -u "https://drive.google.com/file/d/1RzO8knUUz1ZevYWEnCceFQemUFE8Eg6E/view?usp=sharing" &> "/dev/null"
-
-        # .vimrc
-        goodls -u "https://drive.google.com/file/d/1zuN5d0jc09QmWGeIuI2Y4dp9Cn7PA78j/view?usp=sharing" &> "/dev/null"
-    )
-
-    mkdir "${HOME}/.config/nvim/colors" &> "/dev/null"
-    (
-        cd "${HOME}/.config/nvim/colors"
-
-        # personal.vim
-        goodls -u "https://drive.google.com/file/d/1Z_0GQntt2-biH95yiPctwm63T--gVkK8/view?usp=sharing" &> "/dev/null"
-    )
 }
