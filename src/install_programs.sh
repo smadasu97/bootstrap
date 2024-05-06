@@ -160,7 +160,7 @@ function install_programs(){
         )
 
         printf -- "-Installing neovim plugins\n"
-        nvim --headless +PlugUpdate +quitall! 
+        nvim --headless +PlugUpdate +quitall! &> "/dev/null"
     )
     rm -rf "${PWD}/tmp_bootstrap"
 }
