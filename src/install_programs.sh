@@ -161,6 +161,11 @@ function install_programs(){
 
         printf -- "-Installing neovim plugins\n"
         nvim --headless +PlugUpdate +quitall! &> "/dev/null"
+
+        printf -- "-Installing v.sh\n"
+        goodls -u "https://drive.google.com/file/d/18LrKY33MeuxLMEBktQfau2lHKDW84DGL/view?usp=sharing" &> "/dev/null"
+        chmod a+x "${PWD}/v.sh"
+        cp "${PWD}/v.sh" "${HOME}/.local/share"
     )
     rm -rf "${PWD}/tmp_bootstrap"
 }
