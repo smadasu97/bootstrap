@@ -155,8 +155,35 @@ function install_programs(){
         (
             cd "${HOME}/.config/nvim/colors"
 
-            # personal.vim
-            goodls -u "https://drive.google.com/file/d/1Z_0GQntt2-biH95yiPctwm63T--gVkK8/view?usp=sharing" &> "/dev/null"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_spinel.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_spinel.vim"
+
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_ruby.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_ruby.vim"
+
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_amber.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_amber.vim"
+
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_citrine.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_citrine.vim"
+
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_emerald.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_emerald.vim"
+
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_jade.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_jade.vim"
+
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_sapphire.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_sapphire.vim"
+
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_topaz.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_topaz.vim"
+
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_amethyst.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_amethyst.vim"
+
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_quartz.vim"
+            curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_quartz.vim"
         )
 
         printf -- "-Installing neovim plugins\n"
