@@ -8,7 +8,7 @@ function pull_configs(){
         # .bash_profile
         goodls -u "https://drive.google.com/file/d/1wy6Pk8BHd_IPZOlDHDV3DqY3kOXytMzd/view?usp=sharing" &> "/dev/null"
         # .bashrc
-        goodls -u "https://drive.google.com/file/d/1Zid68heYwguJkyxpAsZw8zc78jVZTrOB/view?usp=sharing" &> "/dev/null"
+        goodls -u "https://drive.google.com/file/d/100z8qv0rgKK0jcJY7DwmyVeECFEDlx9P/view?usp=sharing" &> "/dev/null"
         # .blerc
         goodls -u "https://drive.google.com/file/d/13Hwo8vRJNNyVAopGYKIvs-RJHfUzNqlF/view?usp=sharing" &> "/dev/null"
         # .condarc
