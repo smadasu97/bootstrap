@@ -154,6 +154,7 @@ function install_programs(){
         mkdir "${HOME}/.config/nvim/colors" &> "/dev/null"
         (
             cd "${HOME}/.config/nvim/colors"
+            rm -rf $HOME/.config/nvim/colors/*
 
             curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/dark_spinel.vim"
             curl -LOJsS "https://github.com/gvlassis/m3_extra_utils/releases/latest/download/light_spinel.vim"
