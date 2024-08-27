@@ -194,6 +194,8 @@ function install_programs(){
         git clone "https://github.com/dsanson/termpdf.py" &> "/dev/null"
         (
             cd termpdf.py
+            ${HOME}/.local/bin/micromamba run -n base pip3 install PyMuPDF &> "/dev/null"
+            ${HOME}/.local/bin/micromamba run -n base pip3 install -r requirements.txt &> "/dev/null"
             ${HOME}/.local/bin/micromamba run -n base pip3 install . &> "/dev/null"
         )
 
