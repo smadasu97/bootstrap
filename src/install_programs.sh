@@ -189,6 +189,14 @@ function install_programs(){
 
         printf -- "-Installing neovim plugins\n"
         nvim --headless +PlugUpdate +quitall! &> "/dev/null"
+
+        printf -- "-Installing termpdf\n"
+        git clone "https://github.com/dsanson/termpdf.py" &> "/dev/null"
+        (
+            cd termpdf.py
+            ${HOME}/.local/bin/micromamba run -n base pip3 install . &> "/dev/null"
+        )
+
     )
     rm -rf "${PWD}/tmp_bootstrap"
 }
