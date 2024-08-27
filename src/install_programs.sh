@@ -190,7 +190,7 @@ function install_programs(){
         printf -- "-Installing neovim plugins\n"
         nvim --headless +PlugUpdate +quitall! &> "/dev/null"
 
-        printf -- "-Installing termpdf\n"
+        printf -- "-Installing termpdf.py\n"
         git clone "https://github.com/dsanson/termpdf.py" &> "/dev/null"
         (
             cd termpdf.py
