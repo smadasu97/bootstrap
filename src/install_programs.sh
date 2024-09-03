@@ -200,7 +200,7 @@ function install_programs(){
         )
         
         printf -- "-Installing ipython\n"
-        ${HOME}/.local/bin/micromamba run -n base pip3 ipython &> "/dev/null"
+            ${HOME}/.local/bin/micromamba run -n base pip3 install ipython &> "/dev/null"
     )
     rm -rf "${PWD}/tmp_bootstrap"
 }
