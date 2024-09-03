@@ -64,4 +64,12 @@ function pull_configs(){
         # proxychains.conf
         goodls -u "https://drive.google.com/file/d/1fPHiN92HZlF6EIAiRbDuZCa23dW48WOH/view?usp=sharing" &> "/dev/null"
     )
+
+    mkdir -p "${HOME}/.ipython/profile_default" &> "/dev/null"
+    (
+        cd "${HOME}/.ipython/profile_default"
+
+        # ipython_config.py
+        goodls -u "https://drive.google.com/file/d/1ZX7EflGFNWB-0Ni5WgKfVHH9WRQqOAQh/view?usp=sharing" &> "/dev/null"
+    )
 }

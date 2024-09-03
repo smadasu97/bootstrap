@@ -198,7 +198,9 @@ function install_programs(){
             ${HOME}/.local/bin/micromamba run -n base pip3 install -r requirements.txt &> "/dev/null"
             ${HOME}/.local/bin/micromamba run -n base pip3 install . &> "/dev/null"
         )
-
+        
+        printf -- "-Installing ipython\n"
+        ${HOME}/.local/bin/micromamba run -n base pip3 ipython &> "/dev/null"
     )
     rm -rf "${PWD}/tmp_bootstrap"
 }
