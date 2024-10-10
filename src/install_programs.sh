@@ -191,7 +191,7 @@ function install_programs(){
         nvim --headless +PlugUpdate +quitall! &> "/dev/null"
 
         printf -- "-Installing termpdf.py\n"
-        git clone "https://github.com/dsanson/termpdf.py" &> "/dev/null"
+        git clone "https://github.com/gvlassis/termpdf.py" &> "/dev/null"
         (
             cd termpdf.py
             ${HOME}/.local/bin/micromamba run -n base pip3 install PyMuPDF &> "/dev/null"
