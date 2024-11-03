@@ -1,5 +1,12 @@
 function pull_keys(){
-    local name="${1}"
+    
+    #local name="${1}"
+    # Prompt for Google Drive username
+    read -p "Enter your Google Drive username (ensuring SSH and atuin keys are located in 'Keys' folder): " GDRIVE_USERNAME
+
+    # Construct the rclone remote name based on the input
+    local name="${GDRIVE_USERNAME}"
+
 
     PATH="${HOME}/.local/bin:${PATH}"
 
