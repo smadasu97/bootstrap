@@ -9,9 +9,9 @@ Program for fast bootstrapping of my personal development environment on new com
 1. Creates useful directories (e.g. $HOME/Projects)
 1. Installs the *latest* versions of my essential programs. For those that do not offer prebuilt binaries, I use binaries compiled by me and hosted on my public Google Drive
 1. Pulls my configuration files from my public Google Drive
-1. Connects to my **private** Google Drive
-1. Pulls my keys from my **private** Google Drive
-1. Connects to my [Atuin](https://github.com/atuinsh/atuin) account
+1. Connects to your **private** Google Drive
+1. Pulls your keys from your **private** Google Drive (under 'Keys' folder)
+1. Connects to your [Atuin](https://github.com/atuinsh/atuin) account
 
 > In previous versions, the program did bidirectional syncing (similar to how Android backups certain settings on Google Drive). This was done with rclone's bisync. Unfortunately, bisync is experimental, and there was a plethora of problems. Hence, bidirectional syncing was removed 😢.
 
@@ -27,6 +27,8 @@ bzip2 and unzip are needed for the installation of programs.
 To install, just `git clone https://github.com/gvlassis/bootstrap.git`.
 
 To run, simply `./bootstrap/src/bootstrap.sh`
+
+When prompted, provide your Google Drive username, rclone client ID and atuin username
 
 ## Architecture
 
@@ -44,8 +46,8 @@ install_programs.sh uses the *_id variables plus curl, git and [goodls](https://
 
 pull_configs.sh pulls my configuration files from my public Google Drive.
 
-connect_drive.sh connects (via [rclone](https://rclone.org/)) to my **private** Google Drive. My client_secret and config_token are needed to log in.
+connect_drive.sh connects (via [rclone](https://rclone.org/)) to your **private** Google Drive. Your client_secret and config_token are needed to log in.
 
-pull_keys.sh pulls my keys from my **private** Google Drive.
+pull_keys.sh pulls your keys from your **private** Google Drive.
 
 connect_atuin.sh, well, connects to [Atuin](https://github.com/atuinsh/atuin) 😂.
